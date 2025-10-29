@@ -1,0 +1,15 @@
+.hands {
+  margin: 20px 50px;
+}
+
+body {
+  text-align: center;
+}
+
+button {
+  padding: 20px;
+}
+#score,
+#result {
+  color: red;
+}
