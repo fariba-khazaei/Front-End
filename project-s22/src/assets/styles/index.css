@@ -1,0 +1,188 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto.ttf") format("truetype"),
+    url("/fonts/Roboto-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Roboto";
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 980px;
+  margin-bottom: 80px;
+}
+
+/* Header Section */
+.btn {
+  background-color: #d8460b;
+  color: white;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 400;
+  display: inline-block;
+}
+
+.nav-header {
+  margin-top: 36px;
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+}
+
+.header-btn {
+  margin-left: auto;
+}
+
+.list-bar {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  justify-content: space-around;
+  width: 390px;
+}
+
+.header-link {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 400;
+  color: black;
+}
+
+/* Hero Section */
+#hero {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.banner {
+  background-color: #f2624f;
+  color: white;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  padding-left: 32px;
+  padding-right: 12px;
+}
+
+.banner-title {
+  font-size: 48px;
+  font-weight: 900;
+  margin: 0;
+  line-height: 48px;
+}
+
+.banner-desc {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 24px 0;
+  line-height: 24px;
+}
+
+/* Countries Section */
+
+.title-countries {
+  font-weight: 700;
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+
+.countries-desc {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: #929292;
+}
+
+.countries-wrapper {
+  display: flex;
+  gap: 24px;
+}
+
+.countries-div {
+  flex-grow: 1;
+  background-color: #f6f6f2;
+  border-radius: 36px;
+}
+
+.countries-img {
+  display: inline-block;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.name-countries {
+  font-weight: 700;
+  font-size: 20px;
+  text-align: center;
+  margin: 24px auto 0 auto;
+}
+
+.num-speakers {
+  font-weight: 400;
+  font-size: 14px;
+  text-align: center;
+  margin: 0 auto 16px auto;
+}
+
+/* Get Ready Section */
+#get-ready {
+  background-color: #f9f2db;
+}
+
+.ready-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 56px;
+  padding-bottom: 56px;
+}
+.ready-txt {
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* How Long Section */
+.head-txt {
+  font-size: 30px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.sub-txt {
+  font-size: 16px;
+  font-weight: 400;
+  color: #929292;
+  line-height: 23px;
+  margin: 16px 0 0 0;
+}
+
+/* Common Section */
+.common-list {
+  margin: 0;
+}
+
+ul li::marker {
+  color: #929292;
+}
+/* Footer Section */
+footer {
+  background-color: #f6f6f2;
+}
+.copyright {
+  font-size: 18px;
+  margin: 0;
+  padding: 30px 0;
+}
