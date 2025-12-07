@@ -1,0 +1,6 @@
+@import "tailwindcss";
+@tailwind utilities;
+
+.home {
+  @apply bg-blue-400 p-2;
+}
