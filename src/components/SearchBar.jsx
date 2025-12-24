@@ -16,7 +16,8 @@ const SearchBar = () => {
   });
 
   const onSubmit = ({ query }) => {
-    navigate(`/results?query=${query}&page=1`);
+    if (!query?.trim()) return;
+    navigate(`/results?query=${query.trim()}&page=1`);
     reset();
   };
 
