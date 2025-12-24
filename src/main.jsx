@@ -6,9 +6,9 @@ import "./assets/index.css";
 import { FavoritesProvider } from "./context/FavoritesProvider";
 
 import { Routes, Route } from "react-router";
-import Home from "./views/Home";
-import Results from "./views/Results";
-import MovieDetails from "./views/MovieDetails";
+import Home from "./views/Home/Home";
+import Results from "./views/Results/Results";
+import MovieDetails from "./views/MovieDetail/MovieDetails";
 
 const queryClient = new QueryClient();
 

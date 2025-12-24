@@ -1,10 +1,11 @@
 import { useLocation, useNavigate } from "react-router";
 import { useQuery } from "@tanstack/react-query";
-import { moviesByGenre, searchMovies } from "../hooks/useFetch";
-import MovieCard from "../components/MovieCard";
-import Pagination from "../components/Pagination";
-import SearchBar from "../components/SearchBar";
-import BackButton from "../components/BackButton";
+import { moviesByGenre, searchMovies } from "../../hooks/useFetch";
+import MovieCard from "../../components/MovieCard";
+import Pagination from "../../components/Pagination";
+import SearchBar from "../../components/SearchBar";
+import BackButton from "../../components/BackButton";
+import style from "./Results.module.css";
 
 const Results = () => {
   const location = useLocation();
@@ -36,28 +37,19 @@ const Results = () => {
 
   // Loading state
   if (isLoading) {
-    return (
-      <div className="min-h-screen bg-[#020617] text-white flex items-center justify-center">
-        Loading...
-      </div>
-    );
+    return <div className={style.loadStates}>Loading...</div>;
   }
 
   // Error state
   if (isError || !data) {
-    return (
-      <div className="min-h-screen bg-[#020617] text-white flex items-center justify-center">
-        Something went wrong
-      </div>
-    );
+    return <div className={style.loadStates}>Something went wrong</div>;
   }
 
   const movies = data.data || [];
   const totalPages = data.metadata?.page_count || 1;
 
   return (
-    <div className="mx-auto w-101.5 lg:w-230 bg-[#070D23]">
-      {/* Back button */}
+    <div className={style.resultContainer}>
       <div className="mt-8 mb-8 lg:mt-12.5 flex items-center">
         <BackButton />
         <div className="pr-10 text-white text-center grow">

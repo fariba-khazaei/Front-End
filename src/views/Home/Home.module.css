@@ -1,0 +1,21 @@
+@reference "tailwindcss";
+
+.container {
+  @apply mx-auto max-w-101.5 lg:max-w-230 bg-[#070D23] h-screen;
+}
+
+.title {
+  @apply mt-76 lg:mt-56 lg:text-[140px] text-white font-black align-middle text-[100px] leading-none text-center;
+}
+
+.genres_Container {
+  @apply px-5 lg:px-25 flex gap-2.5 flex-wrap justify-center;
+}
+
+.genres {
+  @apply bg-[#222C4F] rounded-lg font-normal text-xs text-white py-1.5 px-3;
+}
+
+.showMoreBtn {
+  @apply cursor-pointer bg-[#222C4F] text-xs text-white py-1.5 px-3 rounded-lg;
+}

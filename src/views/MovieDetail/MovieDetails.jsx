@@ -1,11 +1,13 @@
 import { useParams } from "react-router";
 import { useQuery } from "@tanstack/react-query";
-import { getMovieDetails } from "../hooks/useFetch";
-import BackButton from "../components/BackButton";
-import RatingCircle from "../components/RatingCircle";
-import MovieTitle from "../components/MovieTitle";
-import FavoriteButton from "../components/FavoriteButton";
+import { getMovieDetails } from "../../hooks/useFetch";
+import BackButton from "../../components/BackButton";
+import RatingCircle from "../../components/RatingCircle";
+import MovieTitle from "../../components/MovieTitle";
+import FavoriteButton from "../../components/FavoriteButton";
 import { nanoid } from "nanoid";
+
+import style from "./MovieDetails.module.css";
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -21,20 +23,12 @@ const MovieDetails = () => {
   });
 
   if (isLoading) {
-    return (
-      <div className="min-h-screen bg-[#020617] text-white flex items-center justify-center">
-        Loading...
-      </div>
-    );
+    return <div className={style.loadingState}>Loading...</div>;
   }
 
   // Error state
   if (isError || !movie) {
-    return (
-      <div className="min-h-screen bg-[#020617] text-white flex items-center justify-center">
-        Something went wrong
-      </div>
-    );
+    return <div className={style.loadingState}>Something went wrong</div>;
   }
 
   const metaData = [
@@ -54,11 +48,11 @@ const MovieDetails = () => {
 
   if (!movie) return null;
   return (
-    <div className="relative bg-[#070D23] text-white">
+    <div className={style.movieContainer}>
       {/* Background (image + gradient) */}
 
       <div
-        className="absolute top-0 left-0 w-full h-94.75 bg-cover bg-center"
+        className={style.posterBack}
         style={{
           background: `linear-gradient(180deg, rgba(7, 13, 35, 0) 0%, rgba(7, 13, 35, 0.7) 28.5%, rgba(7, 13, 35, 0.9) 60%, #070D23 99%), url(${movie.images})`,
         }}
@@ -73,15 +67,15 @@ const MovieDetails = () => {
         {/* Content */}
         <div className="relative z-10">
           {/* Layout */}
-          <div className="flex flex-col gap-4.5 lg:grid lg:grid-cols-[208px_1fr] lg:gap-x-17.5">
+          <div className={style.layoutContent}>
             {/* left side poster + rating*/}
-            <div className="order-3 lg:order-1 lg:row-span-2 flex flex-col gap-4.5 lg:gap-7.5">
+            <div className={style.posterRateContainer}>
               {/* Rating */}
-              <div className="lg:order-2 flex items-center justify-between lg:flex-col lg:gap-7.5 lg:items-start">
+              <div className={style.rateContainer}>
                 <div className="flex items-center gap-4.5">
                   <RatingCircle value={movie.imdb_rating} />
                   <div className="text-white">
-                    <span className="block font-bold text-[18px]  opacity-80">
+                    <span className="block font-bold text-[18px] opacity-80">
                       {movie.imdb_votes}
                     </span>
                     <span className="block opacity-60 text-[14px]">
@@ -102,7 +96,7 @@ const MovieDetails = () => {
               <img
                 src={movie.poster}
                 alt={movie.title}
-                className="w-101.5 h-159.25 lg:h-78 rounded-[18px] shadow-[0px_4px_15px_0px_#00000040] lg:w-52"
+                className={style.poster}
               />
             </div>
 
@@ -116,17 +110,12 @@ const MovieDetails = () => {
               />
 
               {/* Description */}
-              <p className="text-sm leading-6 text-justify text-[#FFFFFF99]">
-                {movie.plot}
-              </p>
+              <p className={style.descriptionMovie}>{movie.plot}</p>
 
               {/* Meta */}
               <div className="flex flex-wrap gap-3 text-xs">
                 {metaData.map((mD) => (
-                  <span
-                    key={nanoid()}
-                    className="px-3 py-1.5 flex gap-1.5 items-center rounded-lg bg-[#222C4F]"
-                  >
+                  <span key={nanoid()} className={style.metaData}>
                     {mD.label === "time" ? (
                       <svg
                         width="12"
@@ -156,7 +145,7 @@ const MovieDetails = () => {
               </div>
             </div>
             {/* Details */}
-            <div className="order-4 lg:order-3 mb-16.25 lg:mb-25.5">
+            <div className={style.detailsContainer}>
               <h2 className="font-bold text-[28px] leading-12.5 mb-1.5">
                 Details
               </h2>
@@ -168,12 +157,8 @@ const MovieDetails = () => {
                       : "border-b border-[#222C4F]"
                   }`}
                 >
-                  <span className="font-bold text-[16px] text-white opacity-80 w-42.75 shrink-0 mr-1.5">
-                    {dD.label}
-                  </span>
-                  <span className="flex-1 opacity-60 text-[14px] lg:col-span-2">
-                    {dD.value}
-                  </span>
+                  <span className={style.detailLabel}>{dD.label}</span>
+                  <span className={style.detailValue}>{dD.value}</span>
                 </div>
               ))}
             </div>

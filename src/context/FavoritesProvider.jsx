@@ -1,5 +1,5 @@
 import { FavoritesContext } from "./FavoritesContext";
-import { useContext, useEffect, useReducer } from "react";
+import { useEffect, useReducer } from "react";
 
 const reducer = (state, action) => {
   switch (action.type) {
