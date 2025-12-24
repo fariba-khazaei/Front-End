@@ -3,12 +3,11 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { z } from "zod";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 
 const SearchBar = () => {
   const navigate = useNavigate();
   const recognitionRef = useRef(null);
-  const [listening, setListening] = useState(false);
 
   const schema = z.object({ query: z.string().min(2) });
   const { register, handleSubmit, reset, setValue } = useForm({
@@ -34,8 +33,6 @@ const SearchBar = () => {
     recognition.lang = "en-US";
     recognition.interimResults = true;
     recognition.continuous = false;
-    recognition.onstart = () => setListening(true);
-    recognition.onend = () => setListening(false);
 
     recognition.onresult = (e) => {
       const transcript = Array.from(e.results)
