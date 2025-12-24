@@ -50,7 +50,7 @@ const SearchBar = () => {
       onSubmit={handleSubmit(onSubmit)}
       className="bg-[#222C4F] rounded-2xl px-4 py-3 flex gap-2.5 my-8"
     >
-      <button type="submit">
+      <button type="submit" className="cursor-pointer">
         <svg
           width="24"
           height="24"
