@@ -16,7 +16,7 @@ const MovieTitle = ({ movie, h2Font, buttonClass = "" }) => {
           key={nanoid()}
           className="opacity-40 font-light text-white text-xs"
         >
-          {genre} {index < movie.genres.length - 1 ? "," : ""}
+          {genre} {index < movie.genres.length - 1 ? ", " : ""}
         </span>
       ))}
     </div>
